@@ -41,7 +41,7 @@ const authentication = async function (req, res, next) {
           return res.status(400).send({ status: false, message: error.message });
         }
         decodedToken = decode;
-  
+        next();
       });
     } catch (error) {
       return res.status(500).send({ status: false, message: error.message });
